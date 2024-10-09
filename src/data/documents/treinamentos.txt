@@ -1,0 +1,53 @@
+1. Quais treinamentos são mandatórios?
+Os treinamentos mandatórios incluem:
+- Integração de Novos Colaboradores
+- Segurança no Trabalho
+- Compliance e Ética
+- Treinamento sobre a Cultura da Empresa
+
+2. Quais treinamentos mandatórios ainda me faltam?
+Você pode verificar a lista de treinamentos pendentes na sua plataforma de aprendizado.
+
+3. Quais são as plataformas educacionais da empresa?
+As plataformas educacionais que utilizamos são:
+- Plataforma de E-learning: para cursos online.
+- Coursera: onde você pode encontrar materiais adicionais e informações sobre treinamentos.
+- Workshops presenciais: organizados periodicamente para habilidades específicas.
+
+4. Quais cursos você recomenda para aprender/aprimorar as skills de:
+- Programação:
+- "Introdução à Programação"
+- "Algoritmos e Estruturas de Dados"
+
+- Design:
+- "Fundamentos do Design Gráfico"
+- "Design Thinking"
+
+- User Experience:
+- "UX Design Essentials"
+- "Pesquisa em UX"
+
+- Business Intelligence:
+- "Introdução ao Business Intelligence"
+- "Análise de Dados com Python"
+
+- Desenvolvimento:
+- "Desenvolvimento Web para Iniciantes"
+- "Desenvolvimento de Aplicações Móveis"
+
+- Metodologias Ágeis:
+- "Scrum Fundamentals"
+- "Agile Project Management"
+
+- Inglês:
+- "Inglês para Negócios"
+- "Conversação em Inglês"
+
+5. Como posso acessar os treinamentos?
+Você pode acessar os treinamentos através das nossas plataformas. Basta fazer login com suas credenciais e navegar até a seção de cursos.
+
+6. Como faço para obter certificados após completar os cursos?
+Após concluir um curso, você receberá um certificado automaticamente na sua conta da plataforma. Certificados podem ser baixados ou enviados por e-mail.
+
+7. O que faço se tiver dificuldades com algum curso?
+Se você encontrar dificuldades, pode entrar em contato com o suporte da plataforma ou me chamar!
