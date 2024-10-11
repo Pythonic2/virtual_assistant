@@ -24,6 +24,7 @@ if __name__ == '__main__':
         "beneficios": "src/data/embeddings/beneficios_embeddings.pkl",
         "contratos": "src/data/embeddings/contratos_embeddings.pkl",
         "juridico": "src/data/embeddings/juridico_embeddings.pkl",
+        "acessos": "src/data/embeddings/acessos_embeddings.pkl",
         "treinamentos": "src/data/embeddings/treinamentos_embeddings.pkl"
     }
     embedding_files = [document_map[doc] for doc in permitted_documents if doc in document_map]

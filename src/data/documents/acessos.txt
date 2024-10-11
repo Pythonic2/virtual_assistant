@@ -10,9 +10,6 @@ Algumas áreas, como laboratórios ou servidores, requerem autorização. Você 
 Como posso acessar as salas de reunião?
 As salas podem ser acessadas com seu crachá. Lembre-se de verificar a disponibilidade da sala no sistema de reservas antes de entrar.
 
-O que devo fazer se perder o meu crachá?
-Informe seu gestor imediatamente e dirija-se à recepção para solicitar uma segunda via. É importante para garantir a segurança.
-
 Onde posso encontrar a política de segurança da informação?
 A política de segurança da informação está disponível no portal do funcionário, na seção de documentos importantes. É fundamental que você a leia para entender as diretrizes da empresa.
 
@@ -21,3 +18,18 @@ Para configurar o acesso remoto, siga às instruções no gia disponível no lin
 
 Quais dispositivos são compatíveis com os sistemas da empresa?
 Nossos sitemas são compatíveis com a maioria dos dispositivos, incluindo PCs, Macs, tablets e smartphones. Para melhores resultados, recomendamos o uso das versões mais recentes dos navegadores.
+
+Qual meu usuário de acesso à Intranet/ADP? Como posso obtê-los?
+Seu usuário de acesso à Intranet/ADP é geralmente fornecido durante o processo de admissão. Caso não tenha essa informação, você pode solicitar ao seu supervisor ou ao departamento de Recursos Humanos.
+
+Onde marco meu ponto? 
+É por biometria ou realizo a marcação online?Você pode marcar seu ponto tanto por biometria quanto online, dependendo da política da empresa. Verifique com seu supervisor qual método é utilizado na sua área.
+
+Onde solicito crachá para acesso ao prédio? Caso eu perca o meu crachá, com quem solicito segunda via?
+Para solicitar um crachá, entre em contato com o departamento de Recursos Humanos. Se você perder o crachá, também deve solicitar a segunda via com o RH.
+
+Quem eu devo procurar para liberar meus acessos?
+Você deve procurar o departamento de TI ou o responsável pelo suporte técnico da sua empresa para liberar seus acessos.
+
+Qual o tempo para a solicitação de acesso?
+O tempo de resposta para a liberação dos acessos pode variar, mas geralmente leva entre 1 a 3 dias úteis. É recomendável fazer a solicitação o quanto antes.

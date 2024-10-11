@@ -40,7 +40,8 @@ class OpenAIAssistant:
                 "beneficios": "benefícios",
                 "contratos": "acessos",
                 "juridico": "suporte",
-                "treinamentos": "treinamentos"
+                "treinamentos": "treinamentos",
+                "acessos": "acessos",
             }
             permitted_topics = [document_map[doc] for doc in permitted_documents if doc in document_map]
             return permitted_documents, permitted_topics

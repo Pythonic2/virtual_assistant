@@ -2,6 +2,7 @@ import os
 import fitz  # PyMuPDF para ler PDFs
 import pickle
 from openai import AzureOpenAI
+#import docx
 
 class EmbeddingGenerator:
     def __init__(self, azure_endpoint: str, api_key: str, api_version: str, embedding_dir="data/embeddings"):
@@ -68,7 +69,7 @@ if __name__ == "__main__":
     model_name = "text-embedding-ada-002"
 
     generator = EmbeddingGenerator(azure_endpoint, api_key, api_version)
-    generator.generate_embeddings("src/data/documents/acessos.txt", model_name)
-    generator.generate_embeddings("src/data/documents/suporte.txt", model_name)
-    generator.generate_embeddings("src/data/documents/beneficios.txt", model_name)
-    generator.generate_embeddings("src/data/documents/treinamentos.txt", model_name)
+    generator.generate_embeddings("data/documents/acessos.txt", model_name)
+    generator.generate_embeddings("data/documents/suporte.txt", model_name)
+    generator.generate_embeddings("data/documents/beneficios.txt", model_name)
+    generator.generate_embeddings("data/documents/treinamentos.txt", model_name)
