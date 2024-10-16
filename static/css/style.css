@@ -1,0 +1,82 @@
+body {
+    background-size: auto; /* Usa o tamanho original da imagem */
+    background-position: top left; /* Posiciona a imagem no canto superior esquerdo */
+    background-repeat: repeat; /* Faz a imagem se repetir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Largura máxima para não ficar muito largo */
+    height: 90vh;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.chat-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    overflow: auto;
+}
+.message-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.bot-message, .user-message {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+.bot-message {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}
+.user-message {
+    background-color: #e9f7ff;
+    border: 1px solid #007bff;
+    margin-right: 10px;
+    text-align: right;
+    margin-left: auto;
+}
+.chat-input-wrapper {
+    display: flex;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.send-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.send-btn svg {
+    fill: #007bff;
+    width: 24px;
+    height: 24px;
+}
+#chat-container {
+    overflow-y: auto;
+    flex-grow: 1;
+    width: 100%;
+}

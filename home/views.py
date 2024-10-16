@@ -23,51 +23,41 @@ openai = OpenAIAssistant(azure_endpoint, api_key, api_version, chat_model, embed
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = 'index.html'
+    template_name = 'chat.html'
     def get(self, request):
-        usuario = request.user  # Use request.user em vez de get_user(request)
+        usuario = get_user(request)
+        praticas = usuario.praticas.prefetch_related('topicos') # Otimiza a consulta
+        # Cria uma lista para armazenar os nomes dos tópicos
+        praticas_com_topicos = []
+        temas_permitidos = []
 
-        if usuario.is_authenticated:
-            # Prefetch práticas e tópicos associados ao usuário
-            praticas = usuario.praticas.prefetch_related('topicos') # Otimiza a consulta
+        for pratica in praticas:
+            for topico in pratica.topicos.all():
+                praticas_com_topicos.append(topico.nome)
+                temas_permitidos.append(topico.nome_formatado)  
+        listas = [f'src/data/embeddings/{topico}_embeddings.pkl' for topico in temas_permitidos]
+        openai.load_embeddings(listas)
 
-            # Cria uma lista para armazenar os nomes dos tópicos
-            praticas_com_topicos = []
-            temas_permitidos = []
+        openai.set_prompt_with_topics(temas_permitidos)
 
-            for pratica in praticas:
-                for topico in pratica.topicos.all():
-                    praticas_com_topicos.append(topico.nome)
-                    temas_permitidos.append(topico.nome_formatado)
-                    
-                    
-                    
-            listas = [f'src/data/embeddings/{topico}_embeddings.pkl' for topico in temas_permitidos]
-            print(listas)
-            openai.load_embeddings(listas)
-
-            openai.set_prompt_with_topics(temas_permitidos)
-
-            context = {
-                'usuario': usuario.nome,
-                'praticas_com_topicos': set(praticas_com_topicos),  # Passa a lista de tópicos para o contexto
-            }
-            return render(request, self.template_name, context)
-        else:
-            return render(request, 'login.html', {'error': 'Usuário não autenticado'})
-
+        context = {
+            'usuario': usuario.nome,
+            'praticas_com_topicos': set(praticas_com_topicos),  # Passa a lista de tópicos para o contexto
+        }
+        
+        return render(request, self.template_name, context)
+        
 
        
 
 def htmx_enviar_mensagem(request):
+    
     if request.method == 'POST':
-       
         try:
             data = json.loads(request.body)
             msg_user = data.get('msg', '').strip()
             if msg_user:
                 response = openai.ask_question(msg_user)
-
                 bot_response = f"""
                     <div class='message-wrapper'>
                         <div class='bot-avatar'><img src='/static/img/assistant_avatar.png'></div>
