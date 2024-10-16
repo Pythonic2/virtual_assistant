@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Virtual RH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .chat-container {
+            display: flex;
+            height: 100vh;
+        }
+        .chat-options {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        .chat-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px;
+            overflow: auto;
+        }
+        .chat-bot-intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .message-wrapper {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .bot-message, .user-message {
+            max-width: 75%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .bot-message {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            margin-left: 10px;
+        }
+        .user-message {
+            background-color: #e9f7ff;
+            border: 1px solid #007bff;
+            margin-right: 10px;
+            text-align: right;
+            margin-left: auto;
+        }
+        .bot-avatar, .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+        }
+        .user-avatar {
+            background-color: #007bff;
+        }
+        .chat-input-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .chat-input {
+            width: 100%;
+        }
+        .send-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .send-btn svg {
+            fill: #007bff;
+            width: 24px;
+            height: 24px;
+        }
+        #chat-container {
+            overflow-y: auto;
+            flex-grow: 1;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid chat-container">
+    <div class="chat-options col-3">
+        <button class="btn btn-outline-danger w-100">Login</button>
+    </div>
+   
+       <form action="" method="post" class="container text-center" style="width: 30%;">
+            {%csrf_token%}
+            {{form}}
+            <input type="Submit" value="Entrar" class="form-control">
+       </form>
+        
+    
+</div>
+
+<script>
+    // Seleciona os elementos
+    const inputField = document.querySelector('#message-input');
+    const sendButton = document.querySelector('.send-btn');
+    
+    // Função para enviar a mensagem
+    function sendMessage() {
+        const message = inputField.value.trim(); // Remove espaços em branco
+    
+        if (message) {
+            // Adiciona a mensagem do usuário ao chat
+            const userMessageHTML = `
+                <div class="message-wrapper">
+                    <div class="user-message">${message}</div>
+                </div>
+            `;
+            document.querySelector('#chat-container').insertAdjacentHTML('beforeend', userMessageHTML);
+    
+            // Limpa o campo de input
+            inputField.value = '';
+    
+            // Envia a mensagem para a view Django usando POST
+            fetch('{% url "enviar-mensagem" %}', {
+                method: 'POST', // Assegura que o método é POST
+                headers: {
+                    'Content-Type': 'application/json', // Define o tipo de conteúdo como JSON
+                    'X-CSRFToken': '{{ csrf_token }}' // Inclui o token CSRF
+                },
+                body: JSON.stringify({ msg: message }) // Envia a mensagem como JSON
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na resposta do servidor');
+                }
+                return response.text(); // Espera pela resposta do Django
+            })
+            .then(data => {
+                // Adiciona a resposta do bot ao chat
+                document.querySelector('#chat-container').insertAdjacentHTML('beforeend', data);
+    
+                // Rola para o final do chat automaticamente
+                const chatContainer = document.querySelector('#chat-container');
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            })
+            .catch(error => console.error('Erro:', error)); // Trata erros
+        } else {
+            console.error('Mensagem vazia'); // Adiciona um log para mensagens vazias
+        }
+    }
+    
+    // Quando clicar no botão "Enviar"
+    sendButton.addEventListener('click', sendMessage);
+    
+    // Quando apertar "Enter" no campo de input
+    inputField.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Previne que o Enter submeta um formulário ou faça outra ação padrão
+            sendMessage(); // Chama a função de enviar mensagem
+        }
+    });
+    </script>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -38,7 +38,7 @@ class OpenAIAssistant:
             # Mapear os documentos para os tópicos correspondentes
             document_map = {
                 "beneficios": "benefícios",
-                "contratos": "acessos",
+                "contratos": "contratos",
                 "juridico": "suporte",
                 "treinamentos": "treinamentos",
                 "acessos": "acessos",
@@ -48,7 +48,7 @@ class OpenAIAssistant:
         else:
             return [], []
 
-    def load_embeddings(self, embedding_files):
+    def load_embeddings(self, embedding_files:list):
         """Carrega múltiplos arquivos de embeddings e os adiciona ao índice FAISS."""
         for file_path in embedding_files:
             with open(file_path, "rb") as f:

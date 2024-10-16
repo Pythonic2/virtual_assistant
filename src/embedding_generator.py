@@ -63,10 +63,11 @@ class EmbeddingGenerator:
 
 if __name__ == "__main__":
     
-    azure_endpoint="https://cocria.openai.azure.com/"
-    api_key="4c5bb55a31bf40f3ac36883dc5fdf110"
-    api_version="2024-02-01"
-    model_name = "text-embedding-ada-002"
+    azure_endpoint = os.getenv('AZURE_ENDPOINT')
+    api_key = os.getenv('API_KEY')
+    api_version = os.getenv('VERSION')
+    chat_model = os.getenv('CHAT_MODEL')
+    model_name = os.getenv('EMBEDDING_MODEL')
 
     generator = EmbeddingGenerator(azure_endpoint, api_key, api_version)
     generator.generate_embeddings("data/documents/acessos.txt", model_name)
