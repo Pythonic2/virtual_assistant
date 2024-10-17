@@ -21,6 +21,7 @@ function sendMessage() {
 
         inputField.value = '';
 
+        // Use a URL gerada no template
         fetch(chatMessageURL, {
             method: 'POST',
             headers: {

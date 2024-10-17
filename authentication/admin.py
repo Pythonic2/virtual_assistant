@@ -10,7 +10,7 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (None, {'fields': ('praticas',)}),
     )
-    list_display = ('username', 'email', 'get_praticas', 'is_staff', 'is_superuser', 'is_active')
+    list_display = ('username','first_name', 'email', 'get_praticas', 'is_staff', 'is_superuser', 'is_active')
     
     def get_praticas(self, obj):
         return ", ".join([pratica.nome for pratica in obj.praticas.all()])

@@ -61,7 +61,14 @@ def htmx_enviar_mensagem(request):
                 bot_response = f"""
                     <div class='message-wrapper'>
                         <div class='bot-avatar'><img src='/static/img/assistant_avatar.png'></div>
-                        <div class='bot-message'>{response}</div>
+                        <div class='bot-message'>
+                        {response}
+                        <div class="message-actions">
+                            <i class="fas fa-thumbs-up"></i> <!-- Ícone de curtir -->
+                            <i class="fas fa-thumbs-down"></i> <!-- Ícone de não curtir -->
+                            <i class="fas fa-copy"></i> <!-- Ícone de copiar -->
+                        </div>
+                        </div>
                     </div>
                 """
                 return HttpResponse(bot_response) 

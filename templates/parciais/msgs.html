@@ -1,4 +1,18 @@
  <!-- Respostas dinâmicas do usuário e do bot -->
  <div id="chat-container">
+    <div class="message-wrapper">
+        <div class="bot-avatar"><img src="/static/img/assistant_avatar.png" alt="Bot Avatar"></div>
+        <div class="bot-message">
+            Olá, <strong>{{usuario}}</strong>. Aqui é o <strong>Henrique</strong>, assistente virtual do RH. Primeiro, seja muito bem-vindo(a). Por aqui você pode tirar dúvidas sobre:
+            <ul>
+                {% for pratica in praticas_com_topicos %}
+                    <li><strong>{{pratica}}</strong></li>
+                {% endfor %}
+            </ul>
+            Como posso te ajudar?
+
+            
+        </div>
+    </div>
     <!-- Respostas injetadas irão aparecer aqui -->
 </div>

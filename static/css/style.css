@@ -1,13 +1,79 @@
 body {
-    background-size: auto; /* Usa o tamanho original da imagem */
-    background-position: top left; /* Posiciona a imagem no canto superior esquerdo */
-    background-repeat: repeat; /* Faz a imagem se repetir */
+    background-size: auto;
+    background-position: top left;
+    background-repeat: repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
+.bot-message {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+    border-radius: 15px;
+    padding: 10px 15px;
+    font-size: 14px;
+    position: relative;
+}
+
+.message-actions {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 16px;
+    color: #4D4B4B;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.message-actions i {
+    cursor: pointer;
+    transition: color 0.3s ease, opacity 0.3s ease; 
+}
+
+.message-actions i:hover {
+    color: #2E2B2B; 
+    opacity: 0.4; 
+}
+
+
+
+
+/* Estiliza a barra de rolagem para navegadores baseados no WebKit */
+#chat-container::-webkit-scrollbar {
+    width: 2px;  /* Largura do scroll */
+}
+
+#chat-container::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Cor do fundo da barra de rolagem */
+    border-radius: 10px;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;  /* Cor do "polegar" (a parte que se move) */
+    border-radius: 30px;
+   
+}
+
+#chat-container::-webkit-scrollbar-thumb:hover {
+    background-color: #f1f1f1;  /* Cor do "polegar" ao passar o mouse */
+}
+
+/* Para navegadores compatíveis com scrollbar-gutter */
+#chat-container {
+    padding-right: 10px; /* Adiciona um espaçamento para evitar que o conteúdo fique escondido */
+    overflow-y: auto;
+    flex-grow: 1;
+    width: 100%;
+    scrollbar-gutter: stable both-edges;
+    scrollbar-width: thin;
+    scrollbar-color: #f1f1f1 white;
+}
+
+
 .chat-container {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,8 @@
+<!-- Dentro do arquivo HTML template -->
 <script>
-    const chatMessageURL = "{% url 'enviar-mensagem' %}";
-    const csrfToken = "{{ csrf_token }}";
+    // Passa a URL e o CSRF Token para o JavaScript
+    var chatMessageURL = "{% url 'enviar-mensagem' %}";
+    var csrfToken = "{{ csrf_token }}";
 </script>
-<script src="static/js/main.js"></script>
+
+<script src="/static/js/main.js"></script>

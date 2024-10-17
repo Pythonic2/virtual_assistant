@@ -17,7 +17,7 @@ from unidecode import unidecode
 class Topico(models.Model):
     nome = models.CharField(max_length=30, unique=True)
     nome_formatado = models.CharField(max_length=30, unique=True, editable=False)
-
+    base_de_conhecimento = models.FileField(upload_to='src/data/documents/', blank=True, null=True, default='')
     def save(self, *args, **kwargs):
         # Remove acentos e transforma em minúsculas
         self.nome_formatado = unidecode(self.nome.strip().lower())
