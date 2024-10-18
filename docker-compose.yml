@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  assistantpython:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8007
+    volumes:
+      - .:/code
+    ports:
+      - "8007:8007"
+    environment:
+      - PYTHONUNBUFFERED=1
+    pull_policy: build
+    env_file:
+      - stack.env
+    networks:
+      - pi_default
+
+networks:
+  pi_default:
+    external: true
