@@ -39,7 +39,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
         openai.load_embeddings(listas)
 
         openai.set_prompt_with_topics(temas_permitidos)
-
+        openai.set_prompt_with_persona(usuario.first_name)
         context = {
             'usuario': usuario.first_name,
             'praticas_com_topicos': set(praticas_com_topicos),  # Passa a lista de tópicos para o contexto

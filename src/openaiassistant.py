@@ -63,6 +63,11 @@ class OpenAIAssistant:
         topics_str = ", ".join(topics)
         self.prompt = f"{prompt}\n\nVocê pode conversar sobre os seguintes assuntos: {topics_str}."
 
+
+    def set_prompt_with_persona(self, persona: str):
+        """Atualiza o prompt para incluir os tópicos de conversa permitidos."""
+        self.prompt += f"\n\nNesta conversa o usuário que você está auxiliando é {persona}."
+        
     def retrieve_context(self, question: str, top_k: int = 3):
         """Recupera os trechos mais relevantes para a pergunta usando embeddings."""
         query_embedding = self.client.embeddings.create(

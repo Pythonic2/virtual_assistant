@@ -70,7 +70,8 @@ if __name__ == "__main__":
     model_name = os.getenv('EMBEDDING_MODEL')
 
     generator = EmbeddingGenerator(azure_endpoint, api_key, api_version)
-    generator.generate_embeddings("data/documents/acessos.txt", model_name)
-    generator.generate_embeddings("data/documents/suporte.txt", model_name)
-    generator.generate_embeddings("data/documents/beneficios.txt", model_name)
-    generator.generate_embeddings("data/documents/treinamentos.txt", model_name)
+    generator.generate_embeddings("src/data/documents/acessos.txt", model_name)
+    generator.generate_embeddings("src/data/documents/suporte.txt", model_name)
+    generator.generate_embeddings("src/data/documents/beneficios.txt", model_name)
+    generator.generate_embeddings("src/data/documents/treinamentos.txt", model_name)
+    generator.generate_embeddings("src/data/documents/usuarios.txt", model_name)
