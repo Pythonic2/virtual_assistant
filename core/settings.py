@@ -24,11 +24,14 @@ SECRET_KEY = 'django-insecure-(8oa2zq1izvy80fxgi_=%#5w#ch&agsw3q-vag+il^+q29)@ub
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 ALLOWED_HOSTS = ['assiste-rh.cloudboosterlab.org']
 LOGIN_URL = 'login'
 AUTH_USER_MODEL = 'authentication.CustomUser'
-
+CSRF_COOKIE_AGE = 31449600  # 1 ano em segundos
+CSRF_COOKIE_SECURE = True  # Garante que o CSRF cookie só será enviado sobre HTTPS
 LOGIN_REDIRECT_URL = 'home'
 # Application definition
 
