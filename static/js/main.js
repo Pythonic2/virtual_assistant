@@ -24,10 +24,7 @@ function sendMessage() {
         // Use a URL gerada no template
         fetch(chatMessageURL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
-            },
+            
             body: JSON.stringify({ msg: message })
         })
         .then(response => response.text())

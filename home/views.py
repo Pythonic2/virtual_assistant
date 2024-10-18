@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.contrib.auth import get_user
 from empresa.models import Topico
 import os
+from django.views.decorators.csrf import csrf_exempt
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -49,7 +50,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
         
 
        
-
+@csrf_exempt
 def htmx_enviar_mensagem(request):
     
     if request.method == 'POST':
